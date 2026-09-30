@@ -42,7 +42,6 @@ src/main/java/com/swrobotics/robot/
 |---|---|
 | `Robot.java` | Runs the WPILib robot lifecycle: disabled, autonomous, teleop, and test |
 | `RobotContainer.java` | Creates subsystems, creates controls, binds buttons, and returns the autonomous command |
-| `config/` | Shared robot-wide setup such as controller ports, CAN IDs, field dimensions, or team-wide constants |
 | `control/` | Driver/operator controllers and button bindings |
 | `subsystems/` | Code for physical robot mechanisms: drivebase, arm, shooter, intake, climber, etc. |
 | `commands/` | Reusable actions that coordinate one or more subsystems |
@@ -278,7 +277,6 @@ Useful logs answer these questions:
 - Is the mechanism at its target?
 - Is the motor drawing too much current?
 - Is the motor overheating?
-- Is closed-loop control behaving correctly?
 
 ### Recommended logging format
 
@@ -289,7 +287,6 @@ SmartDashboard.putString("ExampleArm/State", targetState.name());
 SmartDashboard.putNumber("ExampleArm/TargetPositionRotations", targetPositionRotations);
 SmartDashboard.putNumber("ExampleArm/ActualPositionRotations", armMotor.getPosition().getValueAsDouble());
 SmartDashboard.putNumber("ExampleArm/MotorVoltage", armMotor.getMotorVoltage().getValueAsDouble());
-SmartDashboard.putNumber("ExampleArm/SupplyCurrentAmps", armMotor.getSupplyCurrent().getValueAsDouble());
 SmartDashboard.putNumber("ExampleArm/TemperatureCelsius", armMotor.getDeviceTemp().getValueAsDouble());
 ```
 
@@ -299,10 +296,7 @@ SmartDashboard.putNumber("ExampleArm/TemperatureCelsius", armMotor.getDeviceTemp
 SmartDashboard.putNumber("Subsystem/PositionRotations", motor.getPosition().getValueAsDouble());
 SmartDashboard.putNumber("Subsystem/VelocityRPS", motor.getVelocity().getValueAsDouble());
 SmartDashboard.putNumber("Subsystem/MotorVoltage", motor.getMotorVoltage().getValueAsDouble());
-SmartDashboard.putNumber("Subsystem/SupplyCurrentAmps", motor.getSupplyCurrent().getValueAsDouble());
-SmartDashboard.putNumber("Subsystem/StatorCurrentAmps", motor.getStatorCurrent().getValueAsDouble());
 SmartDashboard.putNumber("Subsystem/TemperatureCelsius", motor.getDeviceTemp().getValueAsDouble());
-SmartDashboard.putNumber("Subsystem/ClosedLoopError", motor.getClosedLoopError().getValueAsDouble());
 ```
 
 Use one predictable path per mechanism:
@@ -372,6 +366,7 @@ CLIMB
 Poor state names:
 
 ```java
+COOLTHINGY
 BUTTON_A
 MOTOR_50_PERCENT
 RUN_THE_THING
