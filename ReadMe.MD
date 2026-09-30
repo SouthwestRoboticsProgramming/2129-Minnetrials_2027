@@ -6,7 +6,7 @@
 
 ### Command-Based Java Guide
 
-<img src="https://img.shields.io/badge/Code%20Standard-Purple%20%2F%20Black-5E2D91?style=for-the-badge&labelColor=000000" alt="Purple and Black Code Standard">
+<img src="https://img.shields.io/badge/Code%20Standard-Purple%20%2F%20Black-5E2D91?style=for-the-badge&labelColor=000000" alt="SWHS ROBOTICS">
 
 </div>
 
