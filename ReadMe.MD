@@ -1,12 +1,8 @@
 <div align="center">
 
-<img src="https://img.shields.io/badge/SW%20ROBOTICS-2129-4B1F6F?style=for-the-badge&labelColor=000000" alt="SW Robotics 2129">
-
 # SW Robotics Robot Code
 
 ### Command-Based Java Guide
-
-<img src="https://img.shields.io/badge/Code%20Standard-Purple%20%2F%20Black-5E2D91?style=for-the-badge&labelColor=000000" alt="SWHS ROBOTICS">
 
 </div>
 
