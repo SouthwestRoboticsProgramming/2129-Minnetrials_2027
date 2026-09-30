@@ -1,6 +1,6 @@
 <div align="center">
 
-# <span style="color:#b46cff;">SW Robotics Robot Code</span>
+# <span style="color:#3F00FF;">SW Robotics Robot Code</span>
 
 ### <span style="color:#d2a6ff;">Command-Based Java Guide</span>
 
