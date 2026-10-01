@@ -1,54 +1,52 @@
 <div align="center">
 
-# SW Robotics Robot Code
+# SW Robotics Minnetrials Code
 
-### Command-Based Java Guide
+### Command-Based Java Guide For New Code Team Members
 
 </div>
 
 ---
 
-> **Purpose:** This repository contains the command-based Java code for the SW Robotics competition robot. This document explains our code structure, subsystem format, NetworkTables tuning, SmartDashboard logging, commands, controller bindings, and autonomous routines.
+> **Purpose:** This repository contains the command-based Java code for the SW Robotics Minnetrials robot. This document explains our code structure, subsystem format, NetworkTables tuning, SmartDashboard logging, commands, controller bindings, autonomous routines, and how to use them to make your own robot.
 
 ---
 
 # Project Structure
 
 ```text
-src/main/java/com/swrobotics/robot/
+src/main/java/com/swrobotics
 │
-├── Main.java
-├── Robot.java
-├── RobotContainer.java
-│
-├── config/
-│   └── RobotConstants.java
-│
-├── control/
-│   └── ControlBoard.java
-│
-├── commands/
-│   ├── ExampleAutonomous.java
-│   └── ExampleDriveCommand.java
-│
-└── subsystems/
-    ├── ExampleArmSubsystem.java
-    ├── ExampleShooterSubsystem.java
-    │
-    └── drive/
-        └── DriveSubsystem.java
-```
+├── lib/
+│   ├── ctre/...
+│   └── net/...
+├── robot/
+│   │
+│   ├── commands/
+│   │   ├── ExampleAutonomous.java
+│   │   └── ExampleDriveCommand.java
+│   ├── control/
+│   │   └── ControlBoard.java
+│   ├── subsystems/
+│   │   ├── ExampleArmSubsystem.java
+│   │   ├── ExampleShooterSubsystem.java
+│   │   │
+│   │   └── drive/
+│   │       └── DriveSubsystem.java
+│   ├── Main.java
+│   ├── Robot.java
+│   └── RobotContainer.java
+└──
 
 | Location | Responsibility |
 |---|---|
-| `Main.java` | Starts the robot program |
-| `Robot.java` | Runs robot lifecycle methods and the command scheduler |
-| `RobotContainer.java` | Creates subsystems, controls, default commands, button bindings, and autonomous routines |
-| `config/` | Stores shared, robot-wide configuration if needed |
-| `control/` | Maps driver and operator controller inputs to commands |
-| `subsystems/` | Controls individual physical mechanisms |
-| `commands/` | Contains reusable actions and autonomous sequences |
-
+| `lib/` | This has information that allows your network tables to run. don't really need to edit |
+| `commands/` | Contains reusable actions and autonomous sequences: for example, autoalign. edit this |
+| `control/` | Maps controls, default commands, button bindings. edit this |
+| `subsystems/` | Controls individual physical mechanisms. create new ones. |
+| `Main.java` | Starts the robot program: no need to mess with. |
+| `Robot.java` | Runs robot lifecycle methods and the command scheduler: not really needed to mess with |
+| `RobotContainer.java` | Creates subsystems, and autonomous routines: you need to use this |
 ---
 
 # Command-Based Overview
@@ -68,15 +66,15 @@ The expected flow is:
 ```text
 Controller Input
       ↓
-ControlBoard Button Binding
+ControlBoard uses the input to tell a command to run
       ↓
-Command
+Command runs
       ↓
-Subsystem State
+Subsystem State changes
       ↓
-periodic()
+periodic() updates
       ↓
-Motor/Sensor Control and SmartDashboard Logging
+Motor/Sensor Control and SmartDashboard Logging update as well
 ```
 
 A subsystem owns its motors, sensors, configuration, states, NetworkTables entries, and SmartDashboard logs.
@@ -197,6 +195,8 @@ MOTOR_50_PERCENT
 RUN_MOTOR
 TEST_2
 DO_THING
+MOTOR GO
+shoot <- this one is bad because it isn't all caps.
 ```
 
 ---
@@ -205,7 +205,7 @@ DO_THING
 
 Every number in robot code should have a name and a reason.
 
-Do not leave unexplained numbers directly in motor-control calls.
+Do not leave unexplained numbers directly in motor-control calls otherwise it will be hard for us to tell what they mean or are.
 
 Bad:
 
@@ -243,7 +243,7 @@ Use hard-coded constants for:
 - Fixed physical configuration
 - Static safety choices
 
-Do not make CAN IDs NetworkTables values.
+ALWAYS make CAN IDs hard coded values.
 
 ## NetworkTables tunables
 
@@ -295,7 +295,6 @@ The goal of dashboard logging is to answer:
 - Is the mechanism at the target?
 - Is the motor drawing too much current?
 - Is the motor getting too hot?
-- Is closed-loop control behaving correctly?
 
 ## Log naming format
 
@@ -312,20 +311,17 @@ SmartDashboard.putString("ExampleArm/State", targetState.name());
 SmartDashboard.putNumber("ExampleArm/TargetPositionRotations", targetPositionRotations);
 SmartDashboard.putNumber("ExampleArm/ActualPositionRotations", armMotor.getPosition().getValueAsDouble());
 SmartDashboard.putNumber("ExampleArm/MotorVoltage", armMotor.getMotorVoltage().getValueAsDouble());
-SmartDashboard.putNumber("ExampleArm/SupplyCurrentAmps", armMotor.getSupplyCurrent().getValueAsDouble());
 SmartDashboard.putNumber("ExampleArm/TemperatureCelsius", armMotor.getDeviceTemp().getValueAsDouble());
 ```
 
 ## Recommended TalonFX logs
 
 ```java
+SmartDashboard.putString("ExampleArm/State", targetState.name());
 SmartDashboard.putNumber("Subsystem/PositionRotations", motor.getPosition().getValueAsDouble());
 SmartDashboard.putNumber("Subsystem/VelocityRPS", motor.getVelocity().getValueAsDouble());
 SmartDashboard.putNumber("Subsystem/MotorVoltage", motor.getMotorVoltage().getValueAsDouble());
-SmartDashboard.putNumber("Subsystem/SupplyCurrentAmps", motor.getSupplyCurrent().getValueAsDouble());
-SmartDashboard.putNumber("Subsystem/StatorCurrentAmps", motor.getStatorCurrent().getValueAsDouble());
 SmartDashboard.putNumber("Subsystem/TemperatureCelsius", motor.getDeviceTemp().getValueAsDouble());
-SmartDashboard.putNumber("Subsystem/ClosedLoopError", motor.getClosedLoopError().getValueAsDouble());
 ```
 
 ---
