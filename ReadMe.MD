@@ -217,7 +217,7 @@ shoot <- this one is bad because it isn't all caps.
 
 Every number in robot code should have a name and a reason.
 
-Do not leave unexplained numbers directly in motor-control calls otherwise it will be hard for us to tell what they mean or are.
+Don't leave unexplained numbers directly in motor-control calls; otherwise, it will be hard to tell what they mean or are.
 
 Bad:
 
@@ -255,7 +255,7 @@ Use hard-coded constants for:
 - Fixed physical configuration
 - Static safety choices
 
-ALWAYS make CAN IDs hard coded values.
+ALWAYS make CAN IDs hard-coded values.
 
 ## NetworkTables tunables
 
