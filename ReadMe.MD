@@ -23,10 +23,10 @@ src/main/java/com/swrobotics
 ├── robot/
 │   │
 │   ├── commands/
-│   │   ├── ExampleAutonomous.java
-│   │   └── ExampleDriveCommand.java
+│   │   ├── AutonomousCommands.java
+│   │   └── DriveCommands.java
 │   ├── control/
-│   │   └── ControlBoard.java
+│   │   └── Controlboard.java
 │   ├── subsystems/
 │   │   ├── ExampleArmSubsystem.java
 │   │   ├── ExampleShooterSubsystem.java
@@ -40,13 +40,13 @@ src/main/java/com/swrobotics
 
 | Location | Responsibility |
 |---|---|
-| `lib/` | This has information that allows your network tables to run. don't really need to edit |
-| `commands/` | Contains reusable actions and autonomous sequences: for example, autoalign. edit this |
-| `control/` | Maps controls, default commands, button bindings. edit this |
-| `subsystems/` | Controls individual physical mechanisms. create new ones. |
+| `lib/` | This has information that allows your network tables to run. Don't really need to edit. |
+| `commands/` | Contains reusable actions and autonomous sequences: for example, autoalign. Edit this |
+| `control/` | Maps controls, default commands, button bindings. Edit this |
+| `subsystems/` | Controls individual physical mechanisms. Create new ones. |
 | `Main.java` | Starts the robot program: no need to mess with. |
 | `Robot.java` | Runs robot lifecycle methods and the command scheduler: not really needed to mess with |
-| `RobotContainer.java` | Creates subsystems, and autonomous routines: you need to use this |
+| `RobotContainer.java` | Creates subsystems and autonomous routines: you need to use this |
 ---
 
 # Command-Based Overview
@@ -205,7 +205,7 @@ shoot <- this one is bad because it isn't all caps.
 
 Every number in robot code should have a name and a reason.
 
-Do not leave unexplained numbers directly in motor-control calls otherwise it will be hard for us to tell what they mean or are.
+Don't leave unexplained numbers directly in motor-control calls; otherwise, it will be hard to tell what they mean or are.
 
 Bad:
 
@@ -243,7 +243,7 @@ Use hard-coded constants for:
 - Fixed physical configuration
 - Static safety choices
 
-ALWAYS make CAN IDs hard coded values.
+ALWAYS make CAN IDs hard-coded values.
 
 ## NetworkTables tunables
 
