@@ -4,18 +4,15 @@ import java.util.function.Supplier;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
+
 import com.swrobotics.lib.net.NTDouble;
 import com.swrobotics.lib.net.NTEntry;
+import com.swrobotics.robot.config.IOAllocation;
 
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class DriveSubsystem extends SubsystemBase {
-
-    private static final int kLeftMotor1ID = 1;
-    private static final int kLeftMotor2ID = 2;
-    private static final int kRightMotor1ID = 3;
-    private static final int kRightMotor2ID = 4;
 
     private static final double kDesaturationThreshold = 0.6;
 
@@ -23,10 +20,10 @@ public class DriveSubsystem extends SubsystemBase {
     private final NTEntry<Double> turnScale = new NTDouble("Drivebase/TurnScale", 0.5).setPersistent();
     private final NTEntry<Double> aimKP = new NTDouble("Drivebase/Aim_kP", 0.0111).setPersistent();
 
-    private final TalonSRX leftMotor1 = new TalonSRX(kLeftMotor1ID);
-    private final TalonSRX leftMotor2 = new TalonSRX(kLeftMotor2ID);
-    private final TalonSRX rightMotor1 = new TalonSRX(kRightMotor1ID);
-    private final TalonSRX rightMotor2 = new TalonSRX(kRightMotor2ID);
+    private final TalonSRX leftMotor1 = new TalonSRX(IOAllocation.kTLDriveMotor);
+    private final TalonSRX leftMotor2 = new TalonSRX(IOAllocation.kBLDriveMotor);
+    private final TalonSRX rightMotor1 = new TalonSRX(IOAllocation.kTRDriveMotor);
+    private final TalonSRX rightMotor2 = new TalonSRX(IOAllocation.kBRDriveMotor);
 
     public DriveSubsystem() {
     }
@@ -85,4 +82,5 @@ public class DriveSubsystem extends SubsystemBase {
         rightMotor1.set(ControlMode.PercentOutput, rightWheels);
         rightMotor2.set(ControlMode.PercentOutput, rightWheels);
     }
+    
 }

@@ -23,31 +23,43 @@ src/main/java/com/swrobotics
 ├── robot/
 │   │
 │   ├── commands/
-│   │   ├── ExampleAutonomous.java
-│   │   └── ExampleDriveCommand.java
+│   │   ├── AutonomousCommands.java
+│   │   └── DriveCommands.java
+│   │
+│   ├── config/
+│   │   ├── FieldConstants.java
+│   │   ├── IOAllocation.java
+│   │   └── RobotConstants.java
+│   │
 │   ├── control/
 │   │   └── ControlBoard.java
+│   │
+│   ├── logging/
+│   │   └── FieldView.java
+│   │
 │   ├── subsystems/
 │   │   ├── ExampleArmSubsystem.java
 │   │   ├── ExampleShooterSubsystem.java
-│   │   │
 │   │   └── drive/
 │   │       └── DriveSubsystem.java
 │   ├── Main.java
 │   ├── Robot.java
 │   └── RobotContainer.java
+│   
 └──
 
 | Location | Responsibility |
 |---|---|
 | `lib/` | This has information that allows your network tables to run. don't really need to edit |
 | `commands/` | Contains reusable actions and autonomous sequences: for example, autoalign. edit this |
+| `config/` | Contains global constants for field positions, Motor IDs, and Robot constants. edit this |
 | `control/` | Maps controls, default commands, button bindings. edit this |
+| `logging/` | Used so you can see where your robot is on the field in sim and real game. |
 | `subsystems/` | Controls individual physical mechanisms. create new ones. |
 | `Main.java` | Starts the robot program: no need to mess with. |
 | `Robot.java` | Runs robot lifecycle methods and the command scheduler: not really needed to mess with |
 | `RobotContainer.java` | Creates subsystems, and autonomous routines: you need to use this |
----
+|---|---|
 
 # Command-Based Overview
 

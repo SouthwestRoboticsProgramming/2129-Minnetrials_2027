@@ -3,6 +3,7 @@ package com.swrobotics.robot.control;
 import com.swrobotics.lib.net.NTDouble;
 import com.swrobotics.lib.net.NTEntry;
 import com.swrobotics.robot.RobotContainer;
+import com.swrobotics.robot.config.IOAllocation;
 import com.swrobotics.robot.subsystems.ExampleArmSubsystem;
 import com.swrobotics.robot.subsystems.ExampleShooterSubsystem;
 
@@ -29,11 +30,11 @@ public final class ControlBoard extends SubsystemBase {
     public ControlBoard(RobotContainer robot) {
         this.robot = robot;
 
-        driver = new CommandXboxController(0);
+        driver = new CommandXboxController(IOAllocation.DRIVER_CONTROLLER_PORT);
 
-        operator = new CommandXboxController(1);
+        operator = new CommandXboxController(IOAllocation.OPERATOR_CONTROLLER_PORT);
 
-        tester = new CommandXboxController(2);
+        tester = new CommandXboxController(IOAllocation.TESTER_CONTROLLER_PORT);
 
         configureControls();
         configureRumbles();

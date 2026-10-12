@@ -7,6 +7,7 @@ import com.ctre.phoenix6.signals.InvertedValue;
 import com.ctre.phoenix6.signals.NeutralModeValue;
 import com.swrobotics.lib.net.NTDouble;
 import com.swrobotics.lib.net.NTEntry;
+import com.swrobotics.robot.config.IOAllocation;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
@@ -14,13 +15,13 @@ import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 public class ExampleArmSubsystem extends SubsystemBase {
+    
     public enum State {
         UP,
         DOWN
     }
 
-    // Hardware constants
-    private static final int kMotorID = 5;
+    
     private static final InvertedValue kMotorInverted = InvertedValue.Clockwise_Positive;
     private static final NeutralModeValue kNeutralMode = NeutralModeValue.Brake;
 
@@ -37,7 +38,7 @@ public class ExampleArmSubsystem extends SubsystemBase {
     private final NTEntry<Double> downPositionRotations = new NTDouble("ExampleArm/DownPositionRotations", 20.0).setPersistent();
     private final NTEntry<Double> positionToleranceRotations = new NTDouble("ExampleArm/PositionToleranceRotations", 0.25).setPersistent();
 
-    private final TalonFX armMotor = new TalonFX(kMotorID);
+    private final TalonFX armMotor = new TalonFX(IOAllocation.kExampleArmMotor);
     private final MotionMagicVoltage motionMagicControl = new MotionMagicVoltage(0.0);
 
     private State targetState = State.UP;
