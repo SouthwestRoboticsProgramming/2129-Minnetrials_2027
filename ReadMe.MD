@@ -431,9 +431,4 @@ Before testing a new subsystem on the real robot:
 | **NetworkTables update has no effect** | Motor config applied only in constructor | Add an intentional config-apply method/command |
 | **Joystick drifts** | Deadband too small | Driver deadband NetworkTables entry |
 
----
 
-<div align="center">
-    <h3>SW Robotics Code Standard</h3>
-    <p><strong>Build clearly. Log useful data. Tune carefully. Test safely.</strong></p>
-</div>
