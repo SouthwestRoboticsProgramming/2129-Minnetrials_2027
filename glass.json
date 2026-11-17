@@ -1,0 +1,108 @@
+{
+  "NetworkTables": {
+    "Retained Values": {
+      "open": false
+    },
+    "persistent": {
+      "Drive": {
+        "Auto": {
+          "Turn PID": {
+            "open": false
+          },
+          "open": false
+        },
+        "Modules": {
+          "open": false
+        },
+        "Snap": {
+          "open": false
+        }
+      },
+      "Expansion": {
+        "PID": {
+          "open": false
+        }
+      },
+      "Features": {
+        "open": false
+      },
+      "Hood": {
+        "open": false
+      },
+      "ScoringArm": {
+        "open": true
+      },
+      "Shooter": {
+        "Hood": {
+          "open": false
+        },
+        "open": false
+      }
+    },
+    "retained": {
+      "SmartDashboard": {
+        "open": false
+      }
+    },
+    "transitory": {
+      "AdvantageKit": {
+        "Outtake": {
+          "open": false
+        }
+      },
+      "SmartDashboard": {
+        "Field View": {
+          "double[]##v_/SmartDashboard/Field View/Vision estimates": {
+            "open": false
+          }
+        },
+        "Hood": {
+          "open": false
+        },
+        "Robot View": {
+          "Drivebase": {
+            "Hub Target Aim": {
+              "open": false
+            },
+            "open": false
+          },
+          "open": false
+        },
+        "Shooter": {
+          "Mech2d": {
+            "shooter": {
+              "hood": {
+                "open": false
+              },
+              "open": false
+            }
+          },
+          "open": false
+        }
+      }
+    },
+    "types": {
+      "/FMSInfo": "FMSInfo"
+    },
+    "windows": {
+      "/SmartDashboard/Field View": {
+        "PathPlanner path": {
+          "arrows": false,
+          "color": [],
+          "style": "",
+          "weight": 0.0
+        },
+        "Pathfinding goal": {
+          "arrowColor": [],
+          "color": []
+        },
+        "Robot": {
+          "style": ""
+        },
+        "Vision estimates": {
+          "style": ""
+        }
+      }
+    }
+  }
+}

@@ -10,7 +10,8 @@ public class IOAllocation {
     public static final int kBLDriveMotor = 2;
     public static final int kBRDriveMotor = 3;
 
-    public static final int kExampleArmMotor = 5;
+    public static final int kScoringArmMotor = 5;
+    public static final int kScoringArmEncoder = 6;
 
     public static final int kPDP = 50;
 

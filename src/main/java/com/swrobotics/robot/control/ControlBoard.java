@@ -4,8 +4,7 @@ import com.swrobotics.lib.net.NTDouble;
 import com.swrobotics.lib.net.NTEntry;
 import com.swrobotics.robot.RobotContainer;
 import com.swrobotics.robot.config.IOAllocation;
-import com.swrobotics.robot.subsystems.ScoringArmSubsystem;
-// import com.swrobotics.robot.subsystems.ExampleShooterSubsystem;
+import com.swrobotics.robot.subsystems.scoringArm.ScoringArmSubsystem;
 
 import edu.wpi.first.math.MathUtil;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
@@ -15,6 +14,7 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 public final class ControlBoard extends SubsystemBase {
 
     /*  
+    *
     * Controller Layout:
     *
     * Driver:
@@ -24,12 +24,11 @@ public final class ControlBoard extends SubsystemBase {
     * 
     * Operator:
     * 
-    * A - Arm Up
-    * B - Arm Down
-    * Right Trigger - Shoot
-    * Left Trigger - Reverse Shooter
+    * A - Arm Score Cookie
+    * B - Arm Score Milk
+    * X - Arm Stow
+    * Y - Arm Origin
     *
-    * 
     */
 
     private final NTEntry<Double> driverDeadband =
@@ -63,11 +62,10 @@ public final class ControlBoard extends SubsystemBase {
                                 driver.getRightX(),
                                 driverDeadband.get())));
 
-        operator.a().onTrue(robot.exampleArm.commandSetState(ScoringArmSubsystem.State.SCORE_COOKIE));
-//     operator.b().onTrue(robot.exampleArm.commandSetState(ExampleArmSubsystem.State.DOWN));
+        driver.b().onTrue(robot.scoringArm.commandSetState(ScoringArmSubsystem.State.SCORE_COOKIE));
+        driver.x().onTrue(robot.scoringArm.commandSetState(ScoringArmSubsystem.State.SCORE_MILK));
+        driver.a().onTrue(robot.scoringArm.commandSetState(ScoringArmSubsystem.State.STOWING));
 
-//     operator.rightTrigger().whileTrue(robot.exampleShooter.commandSetState(ExampleShooterSubsystem.State.SHOOT));
-//     operator.leftTrigger().whileTrue(robot.exampleShooter.commandSetState(ExampleShooterSubsystem.State.REVERSE));
 
 
     }
