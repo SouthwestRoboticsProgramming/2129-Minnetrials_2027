@@ -18,7 +18,7 @@
   {
     "name": "/Drivebase/Aim_kP",
     "type": "double",
-    "value": 0.0111,
+    "value": 0.0011111,
     "properties": {
       "persistent": true
     }
@@ -131,6 +131,54 @@
     "name": "/Controls/DriverDeadband",
     "type": "double",
     "value": 0.1,
+    "properties": {
+      "persistent": true
+    }
+  },
+  {
+    "name": "/Drivebase/Heading_kP",
+    "type": "double",
+    "value": 0.015,
+    "properties": {
+      "persistent": true
+    }
+  },
+  {
+    "name": "/Drivebase/Heading_kD",
+    "type": "double",
+    "value": 0.001,
+    "properties": {
+      "persistent": true
+    }
+  },
+  {
+    "name": "/Drivebase/Distance_kP",
+    "type": "double",
+    "value": 0.65,
+    "properties": {
+      "persistent": true
+    }
+  },
+  {
+    "name": "/ScoringArm/PositionToleranceRotations",
+    "type": "double",
+    "value": 0.5,
+    "properties": {
+      "persistent": true
+    }
+  },
+  {
+    "name": "/ScoringArm/MilkSetpointRotations",
+    "type": "double",
+    "value": 10.0,
+    "properties": {
+      "persistent": true
+    }
+  },
+  {
+    "name": "/ScoringArm/CookieSetpointRotations",
+    "type": "double",
+    "value": 15.0,
     "properties": {
       "persistent": true
     }

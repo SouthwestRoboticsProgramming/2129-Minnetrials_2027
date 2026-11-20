@@ -1,0 +1,10 @@
+{
+  "game": "MinneTrials 2026",
+  "field-image": "Field.png",
+  "field-corners": {
+    "top-left": [0, 0],
+    "bottom-right": [1654, 821]
+  },
+  "field-size": [16.54, 8.21],
+  "field-unit": "meters"
+}
