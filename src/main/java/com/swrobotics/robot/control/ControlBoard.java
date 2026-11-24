@@ -28,9 +28,9 @@ public final class ControlBoard extends SubsystemBase {
     public ControlBoard(RobotContainer robot) {
         this.robot = robot;
 
-        driver = new CommandXboxController(IOAllocation.DRIVER_CONTROLLER_PORT);
-        operator = new CommandXboxController(IOAllocation.OPERATOR_CONTROLLER_PORT);
-        tester = new CommandXboxController(IOAllocation.TESTER_CONTROLLER_PORT);
+        driver = new CommandXboxController(IOAllocation.Controller.DRIVER_CONTROLLER_PORT);
+        operator = new CommandXboxController(IOAllocation.Controller.OPERATOR_CONTROLLER_PORT);
+        tester = new CommandXboxController(IOAllocation.Controller.TESTER_CONTROLLER_PORT);
 
         configureControls();
     }

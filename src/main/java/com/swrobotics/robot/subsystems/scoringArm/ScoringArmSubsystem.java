@@ -30,16 +30,11 @@ public class ScoringArmSubsystem extends SubsystemBase {
     private final ScoringArmIO.ScoringArmIOInputs inputs = new ScoringArmIO.ScoringArmIOInputs();
 
     // Tunables in NetworkTables / Elastic
-    private final NTEntry<Double> zeroOffsetDegrees =
-            new NTDouble("ScoringArm/ZeroOffsetDeg", 0.0).setPersistent();
-    private final NTEntry<Double> toleranceDegrees =
-            new NTDouble("ScoringArm/ToleranceDeg", 2.0).setPersistent();
-    private final NTEntry<Double> milkTargetDegrees =
-            new NTDouble("ScoringArm/MilkTargetDeg", 45.0).setPersistent();
-    private final NTEntry<Double> cookieTargetDegrees =
-            new NTDouble("ScoringArm/CookieTargetDeg", 75.0).setPersistent();
-    private final NTEntry<Double> stowTargetDegrees =
-            new NTDouble("ScoringArm/StowTargetDeg", 0.0).setPersistent();
+    private final NTEntry<Double> zeroOffsetDegrees = new NTDouble("ScoringArm/ZeroOffsetDeg", 0.0).setPersistent();
+    private final NTEntry<Double> toleranceDegrees = new NTDouble("ScoringArm/ToleranceDeg", 2.0).setPersistent();
+    private final NTEntry<Double> milkTargetDegrees = new NTDouble("ScoringArm/MilkTargetDeg", 45.0).setPersistent();
+    private final NTEntry<Double> cookieTargetDegrees = new NTDouble("ScoringArm/CookieTargetDeg", 75.0).setPersistent();
+    private final NTEntry<Double> stowTargetDegrees = new NTDouble("ScoringArm/StowTargetDeg", 0.0).setPersistent();
 
     // LoggedMechanism2d works with both AdvantageKit Logger and Elastic/Glass SmartDashboard
     private final LoggedMechanism2d mech2d = new LoggedMechanism2d(60, 60);
@@ -53,6 +48,7 @@ public class ScoringArmSubsystem extends SubsystemBase {
         this.io = io;
 
         LoggedMechanismRoot2d pivot = mech2d.getRoot("ArmPivot", 20, 15);
+        
         pivot.append(new LoggedMechanismLigament2d("Mast", 15, 90, 6, new Color8Bit(Color.kGray)));
         armLigament = pivot.append(
                 new LoggedMechanismLigament2d("ScoringArm", 28, 0, 6, new Color8Bit(Color.kOrange))

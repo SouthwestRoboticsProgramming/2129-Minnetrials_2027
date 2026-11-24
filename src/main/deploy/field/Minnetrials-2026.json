@@ -3,8 +3,8 @@
   "field-image": "Field.png",
   "field-corners": {
     "top-left": [0, 0],
-    "bottom-right": [1654, 821]
+    "bottom-right": [565, 821]
   },
-  "field-size": [16.54, 8.21],
+  "field-size": [8, 8.21],
   "field-unit": "meters"
 }

@@ -31,7 +31,7 @@ public class ScoringArmIOReal implements ScoringArmIO {
     private final StatusSignal<Temperature> tempSignal;
 
     public ScoringArmIOReal() {
-        motor = new TalonFX(IOAllocation.kScoringArmMotor);
+        motor = new TalonFX(IOAllocation.CAN.kScoringArmMotor);
 
         TalonFXConfiguration config = new TalonFXConfiguration();
         config.MotorOutput.Inverted = kMotorInverted;

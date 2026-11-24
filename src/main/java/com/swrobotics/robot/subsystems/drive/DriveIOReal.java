@@ -27,10 +27,10 @@ public class DriveIOReal implements DriveIO {
     private double lastRightPercent = 0.0;
 
     public DriveIOReal() {
-        leftMotor1 = new TalonSRX(IOAllocation.kTLDriveMotor);
-        leftMotor2 = new TalonSRX(IOAllocation.kBLDriveMotor);
-        rightMotor1 = new TalonSRX(IOAllocation.kTRDriveMotor);
-        rightMotor2 = new TalonSRX(IOAllocation.kBRDriveMotor);
+        leftMotor1 = new TalonSRX(IOAllocation.CAN.kTLDriveMotor);
+        leftMotor2 = new TalonSRX(IOAllocation.CAN.kBLDriveMotor);
+        rightMotor1 = new TalonSRX(IOAllocation.CAN.kTRDriveMotor);
+        rightMotor2 = new TalonSRX(IOAllocation.CAN.kBRDriveMotor);
 
         SupplyCurrentLimitConfiguration limit = new SupplyCurrentLimitConfiguration(true, 40, 60, 0.1);
         for (TalonSRX motor : new TalonSRX[]{leftMotor1, leftMotor2, rightMotor1, rightMotor2}) {
@@ -39,7 +39,7 @@ public class DriveIOReal implements DriveIO {
             motor.setNeutralMode(NeutralMode.Brake);
         }
 
-        pigeon = new Pigeon2(IOAllocation.kPigeon2);
+        pigeon = new Pigeon2(IOAllocation.CAN.kPigeon2);
         pigeon.getConfigurator().apply(new Pigeon2Configuration());
         yawSignal = pigeon.getYaw();
         yawRateSignal = pigeon.getAngularVelocityZWorld();
